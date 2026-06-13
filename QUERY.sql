@@ -77,3 +77,41 @@ INSERT INTO Bookings (booking_id, user_id, match_id, seat_number, payment_status
 (503, 2, 101, 'A-13', 'Confirmed', 150.00),
 (504, 2, 101, NULL, NULL, 150.00),
 (505, 3, 102, 'C-20', 'Pending', 120.00);
+
+
+-- =========================================================================
+-- PART 2: SQL QUERIES
+-- =========================================================================
+
+-- -------------------------------------------------------------------------
+-- Query 1: Retrieve all 'Champions League' matches that are 'Available'.
+-- Concepts: WHERE with multiple conditions (AND)
+-- -------------------------------------------------------------------------
+SELECT match_id, fixture, base_ticket_price
+FROM Matches
+WHERE tournament_category = 'Champions League'
+  AND match_status = 'Available';
+
+
+-- -------------------------------------------------------------------------
+-- Query 2: Find users whose full name starts with 'Tanvir' OR contains
+--          'Haque' (case-insensitive). ILIKE is the case-insensitive LIKE.
+-- Concepts: LIKE / ILIKE pattern matching, OR
+-- -------------------------------------------------------------------------
+SELECT user_id, full_name, email
+FROM Users
+WHERE full_name ILIKE 'Tanvir%'
+   OR full_name ILIKE '%Haque%';
+
+
+-- -------------------------------------------------------------------------
+-- Query 3: List bookings with a missing payment_status, displaying the
+--          placeholder text 'Action Required' instead of NULL.
+-- Concepts: IS NULL, COALESCE
+-- -------------------------------------------------------------------------
+SELECT booking_id,
+       user_id,
+       match_id,
+       COALESCE(payment_status, 'Action Required') AS systematic_status
+FROM Bookings
+WHERE payment_status IS NULL;
