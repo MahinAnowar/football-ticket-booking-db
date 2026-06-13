@@ -1,5 +1,19 @@
 # Football Ticket Booking System - Database Design & SQL Queries
 
+> **Submitted by:** Mahin Anowar
+> **Database:** PostgreSQL
+> **Solution file:** [QUERY.sql](./QUERY.sql) &nbsp;|&nbsp; **Theory answers:** [THEORY.md](./THEORY.md)
+
+### 🔗 Submission Links
+
+| Item | Link |
+| --- | --- |
+| **ERD Diagram (Public)** | _add Lucidchart/draw.io link here_ |
+| **GitHub Repository (Public)** | https://github.com/MahinAnowar/football-ticket-booking-db |
+| **Interview Video (Public)** | _add Google Drive/YouTube link here_ |
+
+---
+
 ## Overview & Objectives
 
 This assignment is designed to evaluate your understanding of database table design, ERD relationships, and intermediate-to-advanced SQL queries. You will work with a simplified **Football Ticket Booking System** database.
