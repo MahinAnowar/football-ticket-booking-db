@@ -1,0 +1,81 @@
+<mxfile host="app.diagrams.net" type="device">
+  <diagram name="Football Ticket Booking ERD" id="football-erd">
+    <mxGraphModel dx="900" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- ============ USERS ============ -->
+        <mxCell id="users" value="Users" style="swimlane;fontStyle=1;fontSize=14;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;collapsible=0;marginBottom=0;swimlaneFillColor=#FFFFFF;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="260" height="158" as="geometry" />
+        </mxCell>
+        <mxCell id="u1" value="user_id : INT   [PK]" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;fontStyle=4;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="users">
+          <mxGeometry y="28" width="260" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="u2" value="full_name : VARCHAR(100)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="users">
+          <mxGeometry y="54" width="260" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="u3" value="email : VARCHAR(255)   [UNIQUE]" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="users">
+          <mxGeometry y="80" width="260" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="u4" value="role : VARCHAR(20)   [Fan / Manager]" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="users">
+          <mxGeometry y="106" width="260" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="u5" value="phone_number : VARCHAR(20)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="users">
+          <mxGeometry y="132" width="260" height="26" as="geometry" />
+        </mxCell>
+
+        <!-- ============ MATCHES ============ -->
+        <mxCell id="matches" value="Matches" style="swimlane;fontStyle=1;fontSize=14;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;collapsible=0;marginBottom=0;swimlaneFillColor=#FFFFFF;fillColor=#D5E8D4;strokeColor=#82B366;" vertex="1" parent="1">
+          <mxGeometry x="660" y="40" width="300" height="158" as="geometry" />
+        </mxCell>
+        <mxCell id="m1" value="match_id : INT   [PK]" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;fontStyle=4;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="matches">
+          <mxGeometry y="28" width="300" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="m2" value="fixture : VARCHAR(150)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="matches">
+          <mxGeometry y="54" width="300" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="m3" value="tournament_category : VARCHAR(100)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="matches">
+          <mxGeometry y="80" width="300" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="m4" value="base_ticket_price : NUMERIC(10,2)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="matches">
+          <mxGeometry y="106" width="300" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="m5" value="match_status : VARCHAR(20)   [Available / Sold Out ...]" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="matches">
+          <mxGeometry y="132" width="300" height="26" as="geometry" />
+        </mxCell>
+
+        <!-- ============ BOOKINGS ============ -->
+        <mxCell id="bookings" value="Bookings" style="swimlane;fontStyle=1;fontSize=14;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;collapsible=0;marginBottom=0;swimlaneFillColor=#FFFFFF;fillColor=#FFE6CC;strokeColor=#D79B00;" vertex="1" parent="1">
+          <mxGeometry x="360" y="400" width="280" height="184" as="geometry" />
+        </mxCell>
+        <mxCell id="b1" value="booking_id : INT   [PK]" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;fontStyle=4;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bookings">
+          <mxGeometry y="28" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="b2" value="user_id : INT   [FK -&gt; Users]" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;fontStyle=2;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bookings">
+          <mxGeometry y="54" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="b3" value="match_id : INT   [FK -&gt; Matches]" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;fontStyle=2;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bookings">
+          <mxGeometry y="80" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="b4" value="seat_number : VARCHAR(10)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bookings">
+          <mxGeometry y="106" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="b5" value="payment_status : VARCHAR(20)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bookings">
+          <mxGeometry y="132" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="b6" value="total_cost : NUMERIC(10,2)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bookings">
+          <mxGeometry y="158" width="280" height="26" as="geometry" />
+        </mxCell>
+
+        <!-- ============ RELATIONSHIPS (Crow's Foot) ============ -->
+        <mxCell id="e1" value="One User  →  Many Bookings" style="edgeStyle=entityRelationEdgeStyle;fontSize=11;html=1;rounded=0;endArrow=ERmandOne;startArrow=ERmany;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="b2" target="u1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" value="One Match  →  Many Bookings" style="edgeStyle=entityRelationEdgeStyle;fontSize=11;html=1;rounded=0;endArrow=ERmandOne;startArrow=ERmany;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="b3" target="m1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

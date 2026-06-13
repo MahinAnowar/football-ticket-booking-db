@@ -2,7 +2,7 @@
 
 > **Submitted by:** Mahin Anowar
 > **Database:** PostgreSQL
-> **Solution file:** [QUERY.sql](./QUERY.sql) &nbsp;|&nbsp; **Theory answers:** [THEORY.md](./THEORY.md)
+> **Solution file:** [QUERY.sql](./QUERY.sql) &nbsp;|&nbsp; **Theory answers:** [THEORY.md](./THEORY.md) &nbsp;|&nbsp; **ERD source:** [ERD.drawio](./ERD.drawio)
 
 ### 🔗 Submission Links
 
