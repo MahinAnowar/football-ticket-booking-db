@@ -115,3 +115,57 @@ SELECT booking_id,
        COALESCE(payment_status, 'Action Required') AS systematic_status
 FROM Bookings
 WHERE payment_status IS NULL;
+
+
+-- -------------------------------------------------------------------------
+-- Query 4: Booking details enriched with the buyer's name and the match
+--          fixture. INNER JOIN keeps only rows that match in all 3 tables.
+-- Concepts: INNER JOIN
+-- -------------------------------------------------------------------------
+SELECT b.booking_id,
+       u.full_name,
+       m.fixture,
+       b.total_cost
+FROM Bookings b
+INNER JOIN Users u   ON b.user_id  = u.user_id
+INNER JOIN Matches m ON b.match_id = m.match_id
+ORDER BY b.booking_id;
+
+
+-- -------------------------------------------------------------------------
+-- Query 5: Every user with their booking IDs, INCLUDING fans who have
+--          never booked (they appear once with a NULL booking_id).
+-- Concepts: LEFT JOIN
+-- -------------------------------------------------------------------------
+SELECT u.user_id,
+       u.full_name,
+       b.booking_id
+FROM Users u
+LEFT JOIN Bookings b ON u.user_id = b.user_id
+ORDER BY u.user_id, b.booking_id;
+
+
+-- -------------------------------------------------------------------------
+-- Query 6: Bookings whose total_cost is strictly above the average cost
+--          of all bookings. The subquery computes the average first.
+-- Concepts: Scalar subquery, AVG aggregate
+-- -------------------------------------------------------------------------
+SELECT booking_id,
+       match_id,
+       total_cost
+FROM Bookings
+WHERE total_cost > (SELECT AVG(total_cost) FROM Bookings)
+ORDER BY booking_id;
+
+
+-- -------------------------------------------------------------------------
+-- Query 7: The 2 most expensive matches by base price, AFTER skipping the
+--          single highest-priced one. OFFSET 1 skips the top row.
+-- Concepts: ORDER BY ... DESC, LIMIT, OFFSET (pagination)
+-- -------------------------------------------------------------------------
+SELECT match_id,
+       fixture,
+       base_ticket_price
+FROM Matches
+ORDER BY base_ticket_price DESC
+LIMIT 2 OFFSET 1;
